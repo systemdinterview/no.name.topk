@@ -1,0 +1,36 @@
+plugins {
+    id "application"
+}
+
+apply plugin : "java"
+ext {
+    javaMainClass = "no.name.TopKFinder"
+}
+
+application {
+    mainClassName = javaMainClass
+}
+
+run {
+    standardInput = System.in
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
+
+    implementation group: 'org.slf4j', name:'slf4j-api', version: '1.7.2'
+    implementation group: 'ch.qos.logback', name:'logback-classic', version: '1.0.9'
+    implementation group: 'ch.qos.logback', name:'logback-core', version: '1.0.9'
+}
+
+test {
+    useJUnitPlatform()
+}
